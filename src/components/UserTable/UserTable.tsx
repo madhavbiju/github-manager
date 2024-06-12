@@ -5,12 +5,11 @@ import {
   Table,
   Group,
   Text,
-  ActionIcon,
   Anchor,
   rem,
   TextInput,
 } from "@mantine/core";
-import { IconPencil, IconSearch, IconTrash } from "@tabler/icons-react";
+import { IconSearch } from "@tabler/icons-react";
 
 const jobColors: Record<string, string> = {
   write: "blue",

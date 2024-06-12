@@ -1,18 +1,7 @@
-import React, { useState } from "react";
-import {
-  TextInput,
-  Code,
-  UnstyledButton,
-  Badge,
-  Text,
-  Group,
-  ActionIcon,
-  Tooltip,
-  rem,
-} from "@mantine/core";
+import { useState } from "react";
+import { TextInput, Text, Group, rem } from "@mantine/core";
 import classes from "./NavbarSearch.module.css";
-import { MantineLogo } from "@mantinex/mantine-logo";
-import { IconSearch, IconPlus } from "@tabler/icons-react";
+import { IconSearch } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 
 export function NavbarSearch({ repositories }: RepoProp) {

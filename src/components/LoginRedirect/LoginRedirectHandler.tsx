@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 import axiosInstance from "../../config/configAxios";
 import { baseUrl } from "../../config/configUrls";
 
@@ -11,7 +10,6 @@ const GitHubCallback: React.FC = () => {
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const code = searchParams.get("code");
-    const state = searchParams.get("state");
 
     if (!code) {
       console.error("Authorization code not found");

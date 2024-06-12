@@ -1,5 +1,4 @@
 // api.ts
-import axios from 'axios';
 import axiosInstance from '../../../config/configAxios';
 import { baseUrl } from '../../../config/configUrls';
 

@@ -5,16 +5,16 @@ interface ProtectedRouteProps {
 }
 
 const PrivateRoutes = ({ children }: ProtectedRouteProps) => {
-  const [isAuthorized, setIsAuthorized] = useState(true);
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
-  // useEffect(() => {
-  //   const tokenData = localStorage.getItem("githubToken");
-  //   if (tokenData) {
-  //     setIsAuthorized(true);
-  //   } else {
-  //     setIsAuthorized(false);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const tokenData = localStorage.getItem("githubToken");
+    if (tokenData) {
+      setIsAuthorized(true);
+    } else {
+      setIsAuthorized(false);
+    }
+  }, []);
 
   if (!isAuthorized) {
     // Render UnauthorizedPage directly without navigating

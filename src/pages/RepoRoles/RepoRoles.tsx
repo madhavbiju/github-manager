@@ -1,8 +1,5 @@
-import React from "react";
 import { UsersTable } from "../../components/UserTable/UserTable";
-import { Code, TextInput, rem, Text } from "@mantine/core";
-import { IconSearch, IconPlus } from "@tabler/icons-react";
-import classes from "./RepoRoles.module.css";
+import { Text } from "@mantine/core";
 
 const RepoRoles = ({ collaborators, owner, repo }: collabProp) => {
   return (
