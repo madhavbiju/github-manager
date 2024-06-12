@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axiosInstance from "../../config/configAxios";
 import { baseUrl } from "../../config/configUrls";
+import classes from "./Redirect.module.css";
+import { Loader } from "@mantine/core";
 
 const GitHubCallback: React.FC = () => {
   const location = useLocation();
@@ -42,7 +44,11 @@ const GitHubCallback: React.FC = () => {
     exchangeCodeForToken(code);
   }, [location]);
 
-  return <div>Processing GitHub OAuth callback...</div>;
+  return (
+    <div className={classes.container}>
+      <Loader size={50} />
+    </div>
+  );
 };
 
 export default GitHubCallback;

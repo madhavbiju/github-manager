@@ -19,7 +19,7 @@ import {
   IconLogout,
 } from "@tabler/icons-react";
 import cx from "clsx";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface HeaderSimpleProps {
   opened: boolean;
@@ -57,9 +57,14 @@ export function HeaderSimple({ opened, toggle }: HeaderSimpleProps) {
   return (
     <header className={classes.header}>
       <Group h="100%" px="md" className={classes.inner}>
-        <Text size="lg" fw={500} c="dimmed">
-          Github Manager
-        </Text>
+        <Link
+          style={{ textDecoration: "none" }}
+          to={`/dashboard/home`} // Navigate to /dashboard/{full_name}}
+        >
+          <Text size="lg" fw={500} c="dimmed">
+            Github Manager
+          </Text>
+        </Link>
         <Group gap={10}>
           <ActionIcon
             onClick={() =>

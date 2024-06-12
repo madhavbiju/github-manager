@@ -1,5 +1,4 @@
-import { Text, Paper, Group } from "@mantine/core";
-import { GithubButton } from "./components/GithubButton";
+import { Text, Paper, Button, Title } from "@mantine/core";
 import classes from "./Login.module.css";
 
 interface GitHubAuthComponentProps {
@@ -10,19 +9,20 @@ export default function AuthenticationForm({
   authUrl,
 }: GitHubAuthComponentProps) {
   return (
-    <Paper className={classes.container} radius="md" p="xl">
-      <Text size="xl" fw={500}>
-        Welcome to Github Manager
-      </Text>
-      <br></br>
-      <Text size="lg" fw={500}>
-        Sign in with
-      </Text>
-      <Group grow mb="md" mt="md">
-        <a href={authUrl} rel="noopener noreferrer">
-          <GithubButton radius="xl">Github</GithubButton>
-        </a>
-      </Group>
-    </Paper>
+    <div className={classes.wrapper}>
+      <Paper className={classes.form} radius={0} p={30}>
+        <Title order={2} className={classes.title} ta="center" mt="md" mb={30}>
+          Welcome to Github Manager
+        </Title>
+        <Text ta="center" mt="md">
+          Sign in with Github to continue{" "}
+          <a href={authUrl} rel="noopener noreferrer">
+            <Button fullWidth mt="xl" size="md">
+              Login
+            </Button>
+          </a>
+        </Text>
+      </Paper>
+    </div>
   );
 }
