@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   TextInput,
   Code,
@@ -12,32 +13,25 @@ import {
 import classes from "./NavbarSearch.module.css";
 import { MantineLogo } from "@mantinex/mantine-logo";
 import { IconSearch, IconPlus } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
-const collections = [
-  { emoji: "👍", label: "Repo 1" },
-  { emoji: "🚚", label: "Repo 2" },
-  { emoji: "💸", label: "Repo 3" },
-  { emoji: "💰", label: "Repo 4" },
-  { emoji: "✨", label: "Repo 5" },
-  { emoji: "🛒", label: "Repo 6" },
-  { emoji: "📅", label: "Repo 7" },
-  { emoji: "🙈", label: "Repo 8" },
-  { emoji: "💁‍♀️", label: "Repo 9" },
-];
+export function NavbarSearch({ repositories }: RepoProp) {
+  const [searchTerm, setSearchTerm] = useState("");
 
-export function NavbarSearch() {
-  const collectionLinks = collections.map((collection) => (
-    <a
-      href="#"
-      onClick={(event) => event.preventDefault()}
-      key={collection.label}
+  // Filter repositories based on search term
+  const filteredRepositories = repositories.filter((repo) =>
+    repo.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const collectionLinks = filteredRepositories.map((repo) => (
+    <Link // Use Link instead of 'a' tag
+      to={`/dashboard/${repo.full_name}`} // Navigate to /dashboard/{full_name}
+      key={repo.id}
       className={classes.collectionLink}
     >
-      <span style={{ marginRight: rem(9), fontSize: rem(16) }}>
-        {collection.emoji}
-      </span>{" "}
-      {collection.label}
-    </a>
+      <span style={{ marginRight: rem(9), fontSize: rem(16) }}>{"🔧"}</span>{" "}
+      {repo.name}
+    </Link>
   ));
 
   return (
@@ -45,14 +39,14 @@ export function NavbarSearch() {
       <TextInput
         placeholder="Search"
         size="xs"
+        value={searchTerm}
+        onChange={(event) => setSearchTerm(event.target.value)}
         leftSection={
           <IconSearch
             style={{ width: rem(12), height: rem(12) }}
             stroke={1.5}
           />
         }
-        rightSectionWidth={70}
-        rightSection={<Code className={classes.searchCode}>Ctrl + K</Code>}
         styles={{ section: { pointerEvents: "none" } }}
         mb="sm"
       />

@@ -4,26 +4,15 @@ import { Code, TextInput, rem, Text } from "@mantine/core";
 import { IconSearch, IconPlus } from "@tabler/icons-react";
 import classes from "./RepoRoles.module.css";
 
-const RepoRoles = () => {
+const RepoRoles = ({ collaborators, owner, repo }: collabProp) => {
   return (
     <div>
       <Text size="lg" fw={500}>
-        Repo Users
+        {owner}\{repo}
       </Text>
       <br></br>
-      <TextInput
-        placeholder="Search"
-        size="xs"
-        leftSection={
-          <IconSearch
-            style={{ width: rem(12), height: rem(12) }}
-            stroke={1.5}
-          />
-        }
-        styles={{ section: { pointerEvents: "none" } }}
-        mb="sm"
-      />
-      <UsersTable />
+
+      <UsersTable collaborators={collaborators} />
     </div>
   );
 };
