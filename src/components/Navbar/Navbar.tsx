@@ -18,7 +18,7 @@ export function NavbarSearch({ repositories }: RepoProp) {
       key={repo.id}
       className={classes.collectionLink}
     >
-      <span style={{ marginRight: "0.9rem", fontSize: "1.6rem" }}>
+      <span style={{ marginRight: rem(9), fontSize: rem(16) }}>
         {repo.private ? "🔐" : "🔓"}
       </span>
       {repo.name}
