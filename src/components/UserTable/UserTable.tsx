@@ -44,7 +44,7 @@ export function UsersTable({ collaborators }: userTableProp) {
         </Badge>
       </Table.Td>
       <Table.Td>
-        <Anchor component="button" size="sm">
+        <Anchor href={collaborator.html_url} target="_blank" underline="hover">
           {collaborator.html_url}
         </Anchor>
       </Table.Td>
